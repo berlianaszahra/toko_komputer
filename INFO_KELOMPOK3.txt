@@ -3,7 +3,7 @@ INFORMASI PROYEK REST API - KELOMPOK 3 (TOKO KOMPUTER)
 ====================================================
 
 1. KONFIGURASI DATABASE (.env)
-Nama Database : toko_komputer
+Nama Database : db_toko_komputer
 
 2. AKUN TESTING (HASIL DATABASE SEEDER)
 - Akun Admin:
@@ -35,17 +35,37 @@ Nama Database : toko_komputer
 - PUT    /api/products/{id}         | Login (Admin: Semua | User: Milik Sendiri)
 - DELETE /api/products/{id}         | Login (Hanya Admin)
 
-[2. Dira - Fitur ...]
-- ...
+[2. Dira - Fitur Categories]
+- GET    /api/categories            | Publik (Tanpa Login)
+- GET    /api/categories/{id}       | Publik (Tanpa Login)
+- POST   /api/categories            | Login (Admin & User)
+- PUT    /api/categories/{id}       | Login (Admin: Semua | User: Milik Sendiri)
+- DELETE /api/categories/{id}       | Login (Hanya Admin)
 
-[3. Lecha - Fitur ...]
-- ...
+[3. Lecha - Fitur Vouchers]
+- GET    /api/vouchers              | Publik (Tanpa Login)
+- GET    /api/vouchers/{id}         | Publik (Tanpa Login)
+- POST   /api/vouchers              | Login (Admin & User)
+- PUT    /api/vouchers/{id}         | Login (Admin: Semua | User: Milik Sendiri)
+- DELETE /api/vouchers/{id}       | Login (Hanya Admin)
 
-[4. Intan - Fitur ...]
-- ...
+[4. Intan - Fitur Articles]
+- GET    /api/articles              | Publik (Tanpa Login)
+- GET    /api/articles/{id}         | Publik (Tanpa Login)
+- POST   /api/articles              | Login (Admin & User)
+- PUT    /api/articles/{id}         | Login (Admin: Semua | User: Milik Sendiri)
+- DELETE /api/articles/{id}       | Login (Hanya Admin)
 
-[5. Nasywa - Fitur ...]
-- ...
+[5. Nasywa - Fitur Reviews]
+- GET    /api/reviews               | Publik (Tanpa Login)
+- GET    /api/reviews/{id}          | Publik (Tanpa Login)
+- POST   /api/reviews               | Login (Admin & User)
+- PUT    /api/reviews/{id}          | Login (Admin: Semua | User: Milik Sendiri)
+- DELETE /api/reviews/{id}        | Login (Hanya Admin)
 
-[6. Hana - Fitur ...]
-- ...
+[6. Hana - Fitur Discussions]
+- GET    /api/discussions           | Publik (Tanpa Login)
+- GET    /api/discussions/{id}      | Publik (Tanpa Login)
+- POST   /api/discussions           | Login (Admin & User)
+- PUT    /api/discussions/{id}      | Login (Admin: Semua | User: Milik Sendiri)
+- DELETE /api/discussions/{id}      | Login (Hanya Admin)
