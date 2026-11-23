@@ -11,7 +11,6 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // 1. Buat Akun Admin (Wajib Kelompok)
         $admin = User::create([
             'name' => 'Admin Kelompok',
             'email' => 'admin@example.com',
@@ -19,7 +18,6 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin',
         ]);
 
-        // 2. Buat Akun User 1 (Disimpan ke variabel $user1)
         $user1 = User::create([
             'name' => 'Berlian User 1',
             'email' => 'user1@example.com',
@@ -27,7 +25,6 @@ class DatabaseSeeder extends Seeder
             'role' => 'user',
         ]);
 
-        // 3. Buat Akun User 2 (Disimpan ke variabel $user2)
         $user2 = User::create([
             'name' => 'Dira User 2',
             'email' => 'user2@example.com',
@@ -35,24 +32,23 @@ class DatabaseSeeder extends Seeder
             'role' => 'user',
         ]);
 
-        // 4. Data Dummy Tabel Products (Bagian Berlian)
+        // Data Dummy Products (Bagian Berlian)
         Product::create([
-            'user_id' => $user1->id, // Otomatis terisi ID milik user1
-            'name' => 'Laptop Asus ROG',
-            'description' => 'Produk milik User 1',
-            'price' => 15000000,
+            'user_id' => $user1->id,
+            'name' => 'Laptop Asus ROG Strix',
+            'description' => 'Laptop gaming milik User 1',
+            'price' => 18500000,
             'stock' => 5,
         ]);
 
         Product::create([
-            'user_id' => $user2->id, // Otomatis terisi ID milik user2
-            'name' => 'Mouse Logitech Wireless',
-            'description' => 'Produk milik User 2',
-            'price' => 350000,
-            'stock' => 20,
+            'user_id' => $user2->id,
+            'name' => 'Monitor LG UltraGear 24 Inch',
+            'description' => 'Monitor IPS 144Hz milik User 2',
+            'price' => 2350000,
+            'stock' => 12,
         ]);
 
-        // Nanti data dummy milik Dira, Lecha, Intan, Nasywa, dan Hana
-        // tinggal ditambahkan di bawah baris ini dengan cara yang sama.
+        // Tambahkan data dummy milik Dira, Lecha, Intan, Nasywa, dan Hana di bawah ini
     }
 }

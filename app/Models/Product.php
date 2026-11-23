@@ -17,7 +17,6 @@ class Product extends Model
         'stock',
     ];
 
-    // Relasi ke tabel users
     public function user()
     {
         return $this->belongsTo(User::class);

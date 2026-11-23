@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    // 1. READ ALL (Publik - Tanpa Login)
+    // GET /api/products (Publik - Tanpa Login)
     public function index()
     {
-        $products = Product::with('user:id,name,email')->get();
+        $products = Product::with('user:id,name,email,role')->get();
 
         return response()->json([
             'message' => 'Daftar produk berhasil diambil',
@@ -18,13 +18,15 @@ class ProductController extends Controller
         ], 200);
     }
 
-    // 2. READ DETAIL (Publik - Tanpa Login)
+    // GET /api/products/{id} (Publik - Tanpa Login)
     public function show($id)
     {
-        $product = Product::with('user:id,name,email')->find($id);
+        $product = Product::with('user:id,name,email,role')->find($id);
 
         if (!$product) {
-            return response()->json(['message' => 'Produk tidak ditemukan'], 404);
+            return response()->json([
+                'message' => 'Produk tidak ditemukan',
+            ], 404);
         }
 
         return response()->json([
@@ -33,7 +35,7 @@ class ProductController extends Controller
         ], 200);
     }
 
-    // 3. CREATE (Login: Admin & User)
+    // POST /api/products (Login: Admin & User)
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -43,7 +45,6 @@ class ProductController extends Controller
             'stock' => 'required|integer|min:0',
         ]);
 
-        // user_id otomatis diambil dari akun yang sedang login
         $product = Product::create([
             'user_id' => $request->user()->id,
             'name' => $validated['name'],
@@ -58,18 +59,19 @@ class ProductController extends Controller
         ], 201);
     }
 
-    // 4. UPDATE (Login: Admin bisa semua | User hanya milik sendiri)
+    // PUT /api/products/{id} (Login: Admin semua data | User hanya milik sendiri)
     public function update(Request $request, $id)
     {
         $product = Product::find($id);
 
         if (!$product) {
-            return response()->json(['message' => 'Produk tidak ditemukan'], 404);
+            return response()->json([
+                'message' => 'Produk tidak ditemukan',
+            ], 404);
         }
 
         $user = $request->user();
 
-        // Cek Ownership: jika bukan admin DAN user_id tidak cocok, tolak!
         if ($user->role !== 'admin' && $product->user_id !== $user->id) {
             return response()->json([
                 'message' => 'Akses ditolak: Anda hanya dapat mengubah produk milik sendiri.',
@@ -91,10 +93,9 @@ class ProductController extends Controller
         ], 200);
     }
 
-    // 5. DELETE (Login: Hanya Admin)
+    // DELETE /api/products/{id} (Login: Hanya Admin)
     public function destroy(Request $request, $id)
     {
-        // Cek Role: selain admin dilarang menghapus
         if ($request->user()->role !== 'admin') {
             return response()->json([
                 'message' => 'Akses ditolak: Hanya admin yang dapat menghapus produk.',
@@ -104,7 +105,9 @@ class ProductController extends Controller
         $product = Product::find($id);
 
         if (!$product) {
-            return response()->json(['message' => 'Produk tidak ditemukan'], 404);
+            return response()->json([
+                'message' => 'Produk tidak ditemukan',
+            ], 404);
         }
 
         $product->delete();
