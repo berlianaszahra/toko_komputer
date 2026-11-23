@@ -1,1 +1,0 @@
-ini tugas teknologi sistem terintegrasi 
