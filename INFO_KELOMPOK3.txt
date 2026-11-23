@@ -1,0 +1,51 @@
+====================================================
+INFORMASI PROYEK REST API - KELOMPOK 3 (TOKO KOMPUTER)
+====================================================
+
+1. KONFIGURASI DATABASE (.env)
+Nama Database : toko_komputer
+
+2. AKUN TESTING (HASIL DATABASE SEEDER)
+- Akun Admin:
+  Email    : admin@example.com
+  Password : password123
+  Role     : admin
+
+- Akun User 1:
+  Email    : user1@example.com
+  Password : password123
+  Role     : user
+
+- Akun User 2 (Untuk Uji Ownership):
+  Email    : user2@example.com
+  Password : password123
+  Role     : user
+
+3. DAFTAR ENDPOINT API
+
+[Autentikasi - Kelompok]
+- POST   /api/register              | Publik (Tanpa Login)
+- POST   /api/login                 | Publik (Tanpa Login)
+- POST   /api/logout                | Login (Admin & User)
+
+[1. Berlian - Fitur Products]
+- GET    /api/products              | Publik (Tanpa Login)
+- GET    /api/products/{id}         | Publik (Tanpa Login)
+- POST   /api/products              | Login (Admin & User)
+- PUT    /api/products/{id}         | Login (Admin: Semua | User: Milik Sendiri)
+- DELETE /api/products/{id}         | Login (Hanya Admin)
+
+[2. Dira - Fitur ...]
+- ...
+
+[3. Lecha - Fitur ...]
+- ...
+
+[4. Intan - Fitur ...]
+- ...
+
+[5. Nasywa - Fitur ...]
+- ...
+
+[6. Hana - Fitur ...]
+- ...
