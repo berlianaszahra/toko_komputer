@@ -47,21 +47,21 @@ Nama Database : db_toko_komputer
 - GET    /api/vouchers/{id}         | Publik (Tanpa Login)
 - POST   /api/vouchers              | Login (Admin & User)
 - PUT    /api/vouchers/{id}         | Login (Admin: Semua | User: Milik Sendiri)
-- DELETE /api/vouchers/{id}       | Login (Hanya Admin)
+- DELETE /api/vouchers/{id}         | Login (Hanya Admin)
 
 [4. Intan - Fitur Articles]
 - GET    /api/articles              | Publik (Tanpa Login)
 - GET    /api/articles/{id}         | Publik (Tanpa Login)
 - POST   /api/articles              | Login (Admin & User)
 - PUT    /api/articles/{id}         | Login (Admin: Semua | User: Milik Sendiri)
-- DELETE /api/articles/{id}       | Login (Hanya Admin)
+- DELETE /api/articles/{id}         | Login (Hanya Admin)
 
 [5. Nasywa - Fitur Reviews]
 - GET    /api/reviews               | Publik (Tanpa Login)
 - GET    /api/reviews/{id}          | Publik (Tanpa Login)
 - POST   /api/reviews               | Login (Admin & User)
 - PUT    /api/reviews/{id}          | Login (Admin: Semua | User: Milik Sendiri)
-- DELETE /api/reviews/{id}        | Login (Hanya Admin)
+- DELETE /api/reviews/{id}          | Login (Hanya Admin)
 
 [6. Hana - Fitur Discussions]
 - GET    /api/discussions           | Publik (Tanpa Login)
